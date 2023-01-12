@@ -5,7 +5,7 @@ import io.ktor.server.auth.*
 
 fun Application.configureAuthentication() {
     install(Authentication) {
-        basic {
+        basic("auth-basic") {
             validate { credentials ->
                 if (credentials.name == "juan" && credentials.password == "prado") {
                     UserIdPrincipal(credentials.name)
